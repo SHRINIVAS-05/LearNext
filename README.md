@@ -27,11 +27,13 @@
 
 | Entities   | API Title                                                                   | Method | URL                                                                             |
 |------------|-----------------------------------------------------------------------------|--------|---------------------------------------------------------------------------------|
-| Employee   | Get All Employees Details                                                   | GET    | http://localhost:8080/employees                                                 |
-| Employee   | Get Employees By Dept ID                                                    | GET    | http://localhost:8080/employees/departments/20                                              |
-| Employee   | Get Employees salary between 4800 and 6000                                  | GET    | http://localhost:8080/employees?minSalary=4800&maxSalary=6000                   |
-| Employee   | Get Employees whose salary in range 4800 to 6000 from particular department | GET    | http://localhost:8080/employees?departmentName=IT&minSalary=4800&maxSalary=6000 |
-| Employee   | Get Employees whose salary in range 4800 to 6000 from all departments       | GET    | http://localhost:8080/employees?minSalary=4800&maxSalary=6000                   |
-| Department | Get All Departments Details                                                 | GET    | http://localhost:8080/departments                                               |
-| Department | Get Department By Dept ID                                                   | GET    | http://localhost:8080/departments/20                                            |
+| Homepage   | WelCome page                                                                | GET    | http://localhost:9038/Index-1                                                   |
+| Development| Explore Development course                                                  | GET    | http://localhost:9038/ExploreDev                                                |
+| Testing    | Explore Testing course                                                      | GET    | http://localhost:9038/ExploreTesting                                            |
+| Login      |  User Login                                                                 | GET    | http://localhost:9038/Login-1                                                   |
+| Register   | New user get register                                                       | GET    | http://localhost:9038/Register-1                                                |
+|Student Home| Student Dashboard                                                           | GET    | http://localhost:9038/validate                                                  |
+| MyCourse   |Student enrolled courses                                                     | GET    | http://localhost:9038/Course-1                                                  |
+|view Course | Student can view purchsed course                                            | GET    | http://localhost:9038/getAllCourses?courseID=JAV101                             |
+| Demo vedios| Demo classed                                                                | GET    | http://localhost:9038/DemoLesson                                                  |
 
