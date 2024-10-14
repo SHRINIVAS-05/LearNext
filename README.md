@@ -13,10 +13,10 @@
 - **Backend**: Powered by Java, Spring Boot, and Thymeleaf for server-side rendering and dynamic content.
 - **Database Integration**: Uses MySQL for storing user, course, and transaction data.
 
-- **Programming Languages**          : Java,MySQL, HTML, CSS, JavaScript.
-- **Frameworks/Libraries**           : Bootstrap, Spring Boot.
-- **Databases**                      : MySQL
-- **Developer Tools**                :  Eclipse IDE, VS Code,and Postman
+
+- **The Programming Languages Used For Implementation are**          :Java, J2ee, Spring Boot, MySQL, HTML, CSS,JavaScript and Bootstrap.
+- **Tools Used**                                                     :Eclipse IDE, MySQL, and Postman. Plugin Used: Thymeleaf..
+- **Plugin Used**                                                    :Thymeleaf
 
 
 
