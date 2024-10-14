@@ -1,0 +1,143 @@
+@charset "ISO-8859-1";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f7cfcf;
+    padding: 0;
+    font-size: 14px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 8px;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+nav ul li {
+    margin: 0 0.5em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.4em 0.8em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+.login-container {
+    max-width: 350px;
+    margin: 80px auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+}
+
+.input-group small {
+    display: block;
+    margin-top: 4px;
+    color: #888;
+}
+
+.error-message {
+    display: none; /* Hidden by default */
+    color: #d9534f;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#error-message { /* General error message styling */
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: none; /* Initially hidden, will be shown dynamically */
+}
+
+/* To ensure error messages show up when there is content */
+.error-message:not(:empty) {
+    display: block;
+}
+
+.btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.btn:hover {
+    background-color: #575757;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+p a {
+    color: #333;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #c9c8c6;
+    color: black;
+    text-align: center;
+    padding: 0.5em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
+}

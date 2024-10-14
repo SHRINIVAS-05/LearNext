@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Video List</title>
+<link rel="stylesheet" type="text/css" href="Trainer.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<div class="left-nav">
+				<li><a href="Index-1">Home</a></li>
+			</div>
+			<div class="right-nav">
+				<li class="empid"><span th:text="${uniqueCode}">EMPID</span></li>
+				<li><a href="Index-1">Logout</a></li>
+			</div>
+		</ul>
+	</nav>
+
+	<main>
+		<table class="course-table">
+			<thead>
+				<tr>
+					<th>Sl No</th>
+					<th>Course Symbol</th>
+					<th>Course ID</th>
+					<th>Course Name</th>
+					<th>Add Course</th>
+					<th>View Course</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr>  working code
+					<td>1</td>
+					<td><i class="fab fa-java course-icon"></i></td>
+					<td>JAV101</td>
+					<td>Java and Frameworks</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('JAV101')">Add Course</button></td>
+					<td><a href="getAllJavaCourses" class="view-course-btn">View
+							Course</a></td>
+				</tr> -->
+
+				<tr>
+					<td>1</td>
+					<td><i class="fab fa-java course-icon"></i></td>
+					<td>JAV101</td>
+					<td>Java and Frameworks</td>
+					<td>
+						<button class="add-course-btn" onclick="addCourse('JAV101')">Add
+							Course</button>
+					</td>
+					<td><a href="getAllCourses?courseID=JAV101"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+
+
+				<tr>
+					<td>2</td>
+					<td><i class="fab fa-python course-icon"></i></td>
+					<td>PYT102</td>
+					<td>Python and Frameworks</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('PYT102')">Add Course</button></td>
+					</td>
+					<td><a href="getAllCourses?courseID=PYT102"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><i class="fas fa-laptop-code course-icon"></i></td>
+					<td>UI-F103</td>
+					<td>Front End Technologies</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('UI-F103')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=UI-F103"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><i class="fas fa-database course-icon"></i></td>
+					<td>DBA104</td>
+					<td>Database</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('DBA104')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=DBA104"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td><i class="fas fa-tools course-icon"></i></td>
+					<td>RM105</td>
+					<td>Build and Deployment</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('RM105')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=RM105"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td><i class="fas fa-user-graduate course-icon"></i></td>
+					<td>SSA106</td>
+					<td>Soft Skills and Aptitude</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('SSA106')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=SSA106"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td><i class="fas fa-bug course-icon"></i></td>
+					<td>MNL107</td>
+					<td>Manual Testing</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('MNL107')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=MNL107"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td><i class="fas fa-cogs course-icon"></i></td>
+					<td>ATS108</td>
+					<td>Automation Testing</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('ATS108')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=ATS108"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td><i class="fas fa-plug course-icon"></i></td>
+					<td>SLN109</td>
+					<td>Selenium</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('SLN109')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=SLN109"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+
+
+
+				<tr>
+					<td>10</td>
+					<td><i class="fas fa-code course-icon"></i></td>
+					<td>API110</td>
+					<td>API</td>
+					<td><button class="add-course-btn"
+							onclick="addCourse('API110')">Add Course</button></td>
+					<td><a href="getAllCourses?courseID=API110"
+						class="view-course-btn">View Course</a></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+	</main>
+
+	<footer> &copy; 2024 Your Website. All rights reserved. </footer>
+
+	<script>
+		function addCourse(courseID) {
+			const empID = document.querySelector('.empid span').textContent;
+			window.location.href = `AddLesson-1?empID=${empID}&courseID=${courseID}`;
+		}
+	</script>
+</body>
+</html>

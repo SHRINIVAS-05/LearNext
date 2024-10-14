@@ -1,0 +1,178 @@
+<!-- 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index Page</title>
+
+  <style>
+  
+
+  
+   h5 {
+            font-family: Algerian, sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+    /* Set the page size and margin */
+    @page {
+     size: 15cm 30cm;
+      margin: 2cm;
+    
+    }
+    /* Center the heading */
+    
+     p {
+      text-align: center;
+    }
+    body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0; /* Change background color as desired */
+}
+    /* Style the nav bar */
+    .nav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    /* Style the nav links */
+    .nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    /* Style the buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: 1px solid black;
+      background-color: lightblue;
+      color: black;
+      text-decoration: none;
+    }
+    /* Align the buttons to the right */
+    .button-container {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+  /*  Add the nav bar
+  <div class="nav">
+    <a href="home">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">About</a>
+  </div>
+ /*  Your content here 
+  <h5 style="font-size: 30px;">LearnNext</h5 >
+  <p>About us: here some details about LearNext</p>
+  <!-- End of your content -->
+  <!-- Add the buttons 
+  <div class="button-container">
+    <a href="login" class="button">Login</a>
+    <a href="register" class="button">Register</a>
+  </div>
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index Page</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    h5 {
+      font-family: Algerian, sans-serif;
+      font-size: 20px;
+      text-align: center;
+    }
+    @page {
+      size: 15cm 30cm;
+      margin: 2cm;
+    }
+    p {
+      text-align: center;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: 1px solid black;
+      background-color: lightblue;
+      color: black;
+      text-decoration: none;
+    }
+    /* Pop-up content style */
+    .popup-content {
+      background-color: rgba(240, 240, 240, 0.9); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 80%;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <div class="nav" style="overflow: hidden; background-color: #333; color: white; width: 100%; position: fixed; top: 0; z-index: 1000; animation: colorAnimation 10s infinite alternate;">
+    <a href="home">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">About</a>
+  </div>
+
+  <!-- Case 2: Centered content like a pop-up -->
+  <div class="popup-content">
+    <h5 style="font-size: 30px;">LearnNext</h5>
+    <p>About us: here some details about LearnNext</p>
+    <div class="button-container">
+      <a href="login" class="button">Login</a>
+      <a href="register" class="button">Register</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; background-color: #333; color: white; padding: 10px 0; position: fixed; bottom: 0; width: 100%; animation: colorAnimation 10s infinite alternate;">
+    &copy; 2024 LearnNext. All rights reserved.
+  </footer>
+
+  <!-- Optional: Add keyframes CSS within <style> for clarity -->
+  <style>
+    @keyframes colorAnimation {
+      0% { background-color: #333; color: white; } /* Start color for navbar and footer */
+      50% { background-color: lightblue; color: black; } /* Midpoint color */
+      100% { background-color: #e6c65f; color: black; } /* End color (golden light blue) */
+    }
+  </style>
+</body>
+</html>
+
+

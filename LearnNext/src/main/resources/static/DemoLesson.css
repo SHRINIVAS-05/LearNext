@@ -1,0 +1,85 @@
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    margin: 1em;
+}
+
+.technology-details {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.technology-details h1 {
+    font-size: 32px;
+    color: #4ED199;
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tech-table th,
+.tech-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.tech-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.tech-table td iframe {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.3em; /* Adjusted height */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

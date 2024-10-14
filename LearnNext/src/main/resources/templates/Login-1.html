@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="Login.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<div class="left-nav">
+				<li><a href="Index-1">Home</a></li>
+				<li><a href="About">About</a></li>
+				<li><a href="Contact">Contact</a></li>
+			</div>
+			<div class="right-nav"></div>
+		</ul>
+	</nav>
+
+	<div class="login-container">
+		<h1>Welcome Back</h1>
+
+      <!--  
+		     <!-- Display error message if present 
+        <div th:if="${errorMessage != null}" class="error-message">
+            <p th:text="${errorMessage}">Error message placeholder</p>
+        </div>
+        
+        -->
+        
+         <div th:if="${errorMessage != null}" id="error-message" class="error-message">
+         <p th:text="${errorMessage}">Error message placeholder</p>
+         </div>
+        
+
+		<form action="validate" method="post" onsubmit="return validateForm()">
+		<!-- 	<div class="input-group">
+				<label for="email">Email address</label> <input type="text"
+					id="email" name="email" placeholder="Enter email" required>
+				<div class="error-message" id="email-error">Email is required</div>
+				<small>We'll never share your email with anyone else.</small>
+			</div>
+			<div class="input-group">
+				<label for="password">Password</label> <input type="password"
+					id="password" name="password" placeholder="Enter your password"
+					required>
+				<div class="error-message" id="password-error">Password is
+					required</div>
+			</div>
+			 -->
+			
+			<div class="input-group">
+    <label for="email">Email address</label>
+    <input type="text" id="email" name="email" placeholder="Enter email" required>
+    <div class="error-message" id="email-error">Email is required</div>
+    <small>We'll never share your email with anyone else.</small>
+</div>
+
+<div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <div class="error-message" id="password-error">Password is required</div>
+</div>
+			
+			
+			<button type="submit" class="btn">Submit</button>
+			<p>
+				New here? <a href="Register-1">Register</a>
+			</p>
+		</form>
+	</div>
+
+	<footer>
+		<p>&copy; Terms and Conditions</p>
+	</footer>
+
+	
+	<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const errorMessage = document.getElementById('error-message');
+
+        // Function to hide error messages as the user types
+        emailInput.addEventListener('input', function() {
+            if (emailInput.value !== '') {
+                emailError.style.display = 'none';
+            }
+        });
+
+        passwordInput.addEventListener('input', function() {
+            if (passwordInput.value !== '') {
+                passwordError.style.display = 'none';
+            }
+        });
+
+        // Hide the general error message after 5 seconds
+        if (errorMessage) {
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+    });
+</script>
+	
+</body>
+</html>

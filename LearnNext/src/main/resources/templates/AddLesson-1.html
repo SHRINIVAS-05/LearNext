@@ -1,0 +1,98 @@
+<!-- <!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Course Details</title>
+    <link rel="stylesheet" type="text/css" href="AddLesson.css">
+</head>
+<body>
+    <h1>Add Course Details</h1>
+    <form action="addJavaCourse" method="POST">
+    <label for="empid">EMPID:</label>
+    <input type="text" id="empid" name="empID"><br><br> Name should be "empID"
+
+    <label for="courseID">CourseID:</label>
+    <input type="text" id="courseID" name="courseID" value="" readonly><br><br> Name should be "courseID"
+    
+    <label for="topicName">Topic Name:</label>
+    <input type="text" id="topicName" name="topicName"><br><br> Name should be "vedioContent"
+
+    <label for="videoContent">Video Content:</label>
+    <input type="text" id="videoContent" name="vedioContent"><br><br> Name should be "vedioContent"
+
+    <label for="videoUrl">Video URL:</label>
+    <input type="text" id="videoUrl" name="vedioUrls"><br><br> Name should be "vedioUrls"
+
+    <input type="submit" value="Submit"> <span>' '</span> <a href="Trainer" class="cancel-btn">Cancel</a> Cancel button
+</form>
+    
+
+    <script>
+ // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const empID = urlParams.get('empID');
+    const courseID = urlParams.get('courseID');
+
+    // Set the form field values
+    document.getElementById('empid').value = empID;
+    document.getElementById('courseID').value = courseID;
+
+    </script>
+</body>
+</html>
+ --> 
+ 
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Course Details</title>
+    <link rel="stylesheet" type="text/css" href="AddLesson.css">
+</head>
+<body>
+    <h1>Add Course Details</h1>
+    <form action="addJavaCourse" method="POST">
+        <label for="empid">EMPID:</label>
+        <input type="text" id="empid" name="empID" oninput="checkEmpID()"><br><br> <!-- Name should be "empID" -->
+
+        <label for="courseID">CourseID:</label>
+        <input type="text" id="courseID" name="courseID" value="" readonly disabled><br><br> <!-- Name should be "courseID" -->
+        
+        <label for="topicName">Topic Name:</label>
+        <input type="text" id="topicName" name="topicName" disabled><br><br> <!-- Name should be "topicName" -->
+
+        <label for="videoContent">Video Content:</label>
+        <input type="text" id="videoContent" name="vedioContent" disabled><br><br> <!-- Name should be "vedioContent" -->
+
+        <label for="videoUrl">Video URL:</label>
+        <input type="text" id="videoUrl" name="vedioUrls" disabled><br><br> <!-- Name should be "vedioUrls" -->
+
+        <input type="submit" value="Submit" disabled id="submitBtn"> <span>' '</span> <a href="Trainer" class="cancel-btn">Cancel</a> <!-- Cancel button -->
+    </form>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const empID = urlParams.get('empID');
+        const courseID = urlParams.get('courseID');
+
+        // Set the form field values
+        document.getElementById('empid').value = empID;
+        document.getElementById('courseID').value = courseID;
+
+        // Enable other fields only if EMPID is filled
+        function checkEmpID() {
+            const empidField = document.getElementById('empid');
+            const isEmpIDEntered = empidField.value.trim() !== "";
+
+            document.getElementById('courseID').disabled = !isEmpIDEntered;
+            document.getElementById('topicName').disabled = !isEmpIDEntered;
+            document.getElementById('videoContent').disabled = !isEmpIDEntered;
+            document.getElementById('videoUrl').disabled = !isEmpIDEntered;
+            document.getElementById('submitBtn').disabled = !isEmpIDEntered;
+        }
+
+        // Call checkEmpID on page load in case empID is set via URL parameters
+        checkEmpID();
+    </script>
+</body>
+</html>
+ 

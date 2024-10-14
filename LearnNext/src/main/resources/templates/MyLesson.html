@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Lesson Page</title>
+
+    <style>
+        h5 {
+            font-family: Algerian, sans-serif;
+            font-size: 30px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* sky blue */
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #000; /* black */
+            color: #fff; /* white text */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc0cb; /* light pink */
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px left; /* Adjust margin to center form */
+        }
+
+        .btn-pink {
+            background-color: #ffc0cb !important; /* pink */
+            border-color: #ffc0cb !important;
+        }
+
+        .btn-pink:hover {
+            background-color: #ffb6c1 !important; /* light pink */
+            border-color: #ffb6c1 !important;
+        }
+        
+        /* Additional styling for comments section */
+        .comments-container {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home">LearnNext</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div>
+        <h5>View Lessons</h5>
+        <table class="table table-success table-striped table-bordered w-50">
+            <thead>
+                <tr>
+                    <th scope="col">Lesson ID</th>
+                    <th scope="col">Lesson Name</th>
+                    <th scope="col">Topics</th>
+                    <th scope="col">Video links</th>
+                    <th scope="col">Course</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr th:each="Lesson: ${lesson}">
+                    <td th:text="${Lesson.lessonId}"></td> 
+                    <td th:text="${Lesson.lessonName}"></td>
+                    <td th:text="${Lesson.topics}"></td> 
+                    <td th:text="${Lesson.links}"></td>  
+                    <td th:text="${Lesson.course.courseId}"></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="container">
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/xrHMof4bLM8?si=LFoF6qi7bBwMP5vA" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <div class="container comments-container">
+        <h2>Leave a comment here :</h2>
+        <form action="/addComment" method="post">
+            <textarea name="comment"></textarea>
+            <br>
+            <input type="submit" value="Add Comment" class="btn btn-pink">
+        </form>
+    </div>
+    
+    <div class="container comments-container">
+        <h2>Comments:</h2>
+        <button type="button" class="btn btn-primary"><a href="/ViewComments" style="color: white;">View Comments</a></button>
+    </div>
+</div>
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

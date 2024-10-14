@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User Registration</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <div class="left-nav">
+                <li><a href="Index-1">Home</a></li>
+                <li><a href="About">About</a></li>
+                <li><a href="Contact">Contact</a></li>
+            </div>
+            <div class="right-nav"></div>
+        </ul>
+    </nav>
+
+    <div class="login-container">
+        <h1>New User Registration</h1>
+        
+        <div id="error-message" class="error-message" style="display: block;">
+            <p th:text="${errorMessage}">Error message placeholder</p>
+        </div>
+        
+        <form action="addUser" method="post" onsubmit="return validateForm()">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                <div class="error-message" id="name-error">Name is required</div>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+                <div class="error-message" id="email-error">Email is required</div>
+                <small>We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a strong password (min 8 characters)" required>
+                <div class="error-message" id="password-error">Password must be at least 8 characters long.</div>
+            </div>
+
+            <label for="role">Role:</label>
+            <div class="input-group">
+                <select id="role" name="role" required>
+                    <option value="trainer">Trainer</option>
+                    <option value="student" selected>Student</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <p>Already a customer? <a href="Login-1">Login here</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; Terms and Conditions</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Validate name
+            if (name === '') {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('name-error').style.display = 'none';
+            }
+    
+            // Validate email
+            if (email === '') {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+    
+            // Validate password
+            if (password === '') {
+                document.getElementById('password-error').textContent = 'Password is required';
+                document.getElementById('password-error').style.display = 'block';
+                isValid = false;
+            } else if (password.length < 8) {
+                document.getElementById('password-error').textContent = 'Password must be at least 8 characters long';
+                document.getElementById('password-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('password-error').style.display = 'none';
+            }
+    
+            return isValid;
+        }
+    
+        // Event listeners to hide the error message when the user starts typing in the respective fields
+        document.getElementById('name').addEventListener('input', function() {
+            if (this.value.length >= 1) {
+                document.getElementById('name-error').style.display = 'none';
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            if (this.value.length >= 1) {
+                document.getElementById('email-error').style.display = 'none';
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            if (this.value.length >= 1) {
+                document.getElementById('password-error').style.display = 'none';
+            }
+        });
+
+        // Hide the general error message after 5 seconds
+        setTimeout(function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }, 5000);
+
+    </script>
+    
+</body>
+</html>

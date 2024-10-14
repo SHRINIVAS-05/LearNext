@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Payment.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap"></i> Tech Courses</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="Index-1"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="About"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a class="nav-link" href="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="Index-1"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mt-5">
+        <!-- Payment Section -->
+        <div class="payment-container">
+            <h2 class="text-center mb-4">Payment Information</h2>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <!-- Increased width by changing col-md-6 to col-md-8 -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <i class="fas fa-credit-card fa-2x"></i>
+                            <h4>Secure Payment</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form start -->
+                            <form id="paymentForm" action="/processPayment" method="post">
+                                <div class="form-group">
+                                    <label for="studentId"><i class="fas fa-user-graduate"></i> Student ID</label>
+                                    <input type="text" class="form-control" id="studentId" name="studentId" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="courseSelection"><i class="fas fa-book"></i> Course Selection</label>
+                                    <select class="form-control" id="courseSelection" name="courseSelection" required>
+                                        <option value="" selected disabled>Select Case</option>
+                                        <option value="case1">Java and Python Full Stack Course</option>
+                                        <option value="case2">Comprehensive Testing Premium Course</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="techSelection"><i class="fas fa-laptop-code"></i> Technologies Covered</label>
+                                    <select class="form-control" id="techSelection" name="techSelection" required>
+                                        <!-- Options will be dynamically populated based on Case selection -->
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="priceField"><i class="fas fa-dollar-sign"></i> Price</label>
+                                    <input type="text" class="form-control" id="priceField" name="price" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="courseIDField"><i class="fas fa-id-badge"></i> Course ID</label>
+                                    <input type="text" class="form-control" id="courseIDField" name="courseId" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cardHolderName"><i class="fas fa-user"></i> Card Holder Name</label>
+                                    <input type="text" class="form-control" id="cardHolderName" name="cardHolderName" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="cardNumber"><i class="fas fa-credit-card"></i> Card Number</label>
+                                        <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="confirmCardNumber"><i class="fas fa-credit-card"></i> Confirm Card Number</label>
+                                        <input type="text" class="form-control" id="confirmCardNumber" name="confirmCardNumber" required>
+                                        <small id="cardMatchError" class="form-text text-danger" style="display: none;">Card numbers do not match!</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="expiryDate"><i class="fas fa-calendar-alt"></i> Expiry Date</label>
+                                        <input type="month" class="form-control" id="expiryDate" name="expiryDate" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="cvv"><i class="fas fa-lock"></i> CVV</label>
+                                        <input type="text" class="form-control" id="cvv" name="cvv" required minlength="3" maxlength="4" pattern="\d{3,4}" title="Enter a valid 3 or 4 digit CVV">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="billingAddress"><i class="fas fa-map-marker-alt"></i> Billing Address</label>
+                                    <input type="text" class="form-control" id="billingAddress" name="billingAddress" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-credit-card"></i> Pay Now
+                                </button>
+                            </form>
+                            <!-- Form end -->
+
+                            <!-- Payment Success Message -->
+                            <div id="paymentSuccess" class="alert alert-success mt-3" style="display: none;">
+                                <i class="fas fa-check-circle"></i> Payment successful! Thank you for your purchase.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            var cardNumber = document.getElementById('cardNumber').value;
+            var confirmCardNumber = document.getElementById('confirmCardNumber').value;
+
+            if (cardNumber !== confirmCardNumber) {
+                document.getElementById('cardMatchError').style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('cardMatchError').style.display = 'none';
+
+                // Display success message
+                document.getElementById('paymentSuccess').style.display = 'block';
+
+                // Uncomment the following line to allow form submission
+                // event.preventDefault(); 
+            }
+        });
+
+        document.getElementById('courseSelection').addEventListener('change', function () {
+            var techSelect = document.getElementById('techSelection');
+            var priceField = document.getElementById('priceField');
+            var courseIDField = document.getElementById('courseIDField');
+
+            // Clear previous options
+            techSelect.innerHTML = '<option value="" selected disabled>Select Technology</option>';
+            priceField.value = '';
+            courseIDField.value = '';
+
+            if (this.value === 'case1') {
+                var case1Options = {
+                    'Java and Frameworks': { price: '$100', courseID: 'JAV101' },
+                    'Python and Frameworks': { price: '$100', courseID: 'PYT102' },
+                    'Front End Technologies': { price: '$80', courseID: 'UI-F103' },
+                    'Database': { price: '$90', courseID: 'DBA104' },
+                    'Build and Deployment': { price: '$110', courseID: 'RM105' },
+                    'Soft Skills and Aptitude': { price: '$70', courseID: 'SSA106' }
+                };
+                for (var key in case1Options) {
+                    var option = document.createElement('option');
+                    option.text = key;
+                    option.value = key;
+                    techSelect.add(option);
+                }
+
+                techSelect.addEventListener('change', function () {
+                    var selectedTech = techSelect.value;
+                    if (case1Options[selectedTech]) {
+                        priceField.value = case1Options[selectedTech].price;
+                        courseIDField.value = case1Options[selectedTech].courseID;
+                    }
+                });
+
+            } else if (this.value === 'case2') {
+                var case2Options = {
+                    'Manual Testing': { price: '$90', courseID: 'MNL107' },
+                    'Automation Testing': { price: '$110', courseID: 'ATS108' },
+                    'Front End Technologies': { price: '$80', courseID: 'UI-F103' },
+                    'Java and Frameworks': { price: '$100', courseID: 'JAV101' },
+                    'Selenium': { price: '$120', courseID: 'SLN109' },
+                    'API': { price: '$100', courseID: 'API110' }
+                };
+                for (var key in case2Options) {
+                    var option = document.createElement('option');
+                    option.text = key;
+                    option.value = key;
+                    techSelect.add(option);
+                }
+
+                techSelect.addEventListener('change', function () {
+                    var selectedTech = techSelect.value;
+                    if (case2Options[selectedTech]) {
+                        priceField.value = case2Options[selectedTech].price;
+                        courseIDField.value = case2Options[selectedTech].courseID;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

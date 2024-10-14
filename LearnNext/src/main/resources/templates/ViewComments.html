@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Comments section</title>
+    
+    <style>
+        h5 {
+            font-family: Algerian, sans-serif;
+            font-size: 30px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* sky blue */
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #000; /* black */
+            color: #fff; /* white text */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc0cb; /* light pink */
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px left; /* Adjust margin to center form */
+        }
+
+        .btn-pink {
+            background-color: #ffc0cb !important; /* pink */
+            border-color: #ffc0cb !important;
+        }
+
+        .btn-pink:hover {
+            background-color: #ffb6c1 !important; /* light pink */
+            border-color: #ffb6c1 !important;
+        }
+        
+        /* Additional styling for comments section */
+        .comments-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container comments-container">
+        <h2>Comments:</h2>
+        <table class="table table-success table-striped table-bordered w-50">
+            <thead>
+                <tr>
+                    <th scope="col">Comments ID</th>
+                    <th scope="col">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="comment : ${comment}">
+                    <td th:text="${comment.commentId}"></td> 
+                    <td th:text="${comment.comment}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

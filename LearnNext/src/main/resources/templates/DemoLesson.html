@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Details</title>
+    <link rel="stylesheet" href="DemoLesson.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <div class="left-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Trainer.html">MyProfile</a></li>
+            </div>
+            <div class="right-nav">
+                <li><a href="#logout">Logout</a></li>
+            </div>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="technology-details">
+            <h1 id="tech-title">Technology Name</h1>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Topic Name</th>
+                        <th>Description</th>
+                        <th>Video</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Introduction to Technology</td>
+                        <td>An overview of the basics.</td>
+                        <td>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/uhdtwYXMfTU?si=TIRLQ9uTwU_c7sTy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Advanced Concepts</td>
+                        <td>Deep dive into more advanced topics.</td>
+                        <td>
+                            <iframe width="300" height="200" src="https://www.youtube.com/embed/6l1SyveWNcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Practical Applications</td>
+                        <td>Real-world applications of the technology.</td>
+                        <td>
+                            <iframe width="300" height="200" src="https://www.youtube.com/embed/6l1SyveWNcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Case Studies</td>
+                        <td>In-depth analysis of specific case studies.</td>
+                        <td>
+                            <iframe width="300" height="200" src="https://www.youtube.com/embed/6l1SyveWNcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Future Trends</td>
+                        <td>Upcoming trends and future directions.</td>
+                        <td>
+                            <iframe width="300" height="200" src="https://www.youtube.com/embed/6l1SyveWNcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const technology = urlParams.get('tech');
+            if (technology) {
+                document.getElementById('tech-title').textContent = technology;
+            }
+        });
+    </script>
+</body>
+</html>
