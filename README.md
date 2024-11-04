@@ -21,7 +21,7 @@
 
 
 ### HR Schema Tables Relationship UML Diagram
-![E-Learning Application flow diagram](E-Learning Application flow diagram.jpg)
+![E-Learning Application flow diagram](E-Learning Application flow daigram.jpg)
 
 ### API Documentation:
 
